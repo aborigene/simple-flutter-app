@@ -1,0 +1,11 @@
+{
+  "name": "flutter_web_form",
+  "short_name": "flutter_web_form",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#0175C2",
+  "theme_color": "#0175C2",
+  "description": "A simple Flutter web app with a form",
+  "orientation": "portrait-primary",
+  "prefer_related_applications": false
+}

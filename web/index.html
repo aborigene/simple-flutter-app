@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <base href="$FLUTTER_BASE_HREF">
+  <meta charset="UTF-8">
+  <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+  <meta name="description" content="Flutter Web Form App">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flutter Web Form</title>
+  <link rel="manifest" href="manifest.json">
+  
+  <!-- Dynatrace RUM Script -->
+  <!-- Replace the script below with your actual Dynatrace RUM snippet from your tenant -->
+  <!-- Go to: Settings > Web and mobile monitoring > Applications > Your App > Setup -->
+  <!-- <script type="text/javascript" src="https://YOUR_ENVIRONMENT_ID.live.dynatrace.com/jstag/YOUR_APPLICATION_ID?sync=true"></script> -->
+  
+
+  <style>
+    body {
+      margin: 0;
+      background-color: #ffffff;
+    }
+  </style>
+</head>
+<body>
+  <script>
+    var serviceWorkerVersion = null;
+    window.addEventListener('load', function(ev) {
+      // Download main.dart.js
+      _flutter.loader.loadEntrypoint({
+        serviceWorker: {
+          serviceWorkerVersion: serviceWorkerVersion,
+        },
+        onEntrypointLoaded: function(engineInitializer) {
+          engineInitializer.initializeEngine().then(function(appRunner) {
+            appRunner.runApp();
+          });
+        }
+      });
+    });
+  </script>
+  <script src="flutter.js" defer></script>
+</body>
+</html>
