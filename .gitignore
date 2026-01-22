@@ -1,2 +1,6 @@
 .dart_tool/
 build/
+build/flutter_assets/
+build/native_assets/
+build/native_hooks/
+build/*.dill

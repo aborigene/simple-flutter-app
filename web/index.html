@@ -13,7 +13,7 @@
   <!-- Replace the script below with your actual Dynatrace RUM snippet from your tenant -->
   <!-- Go to: Settings > Web and mobile monitoring > Applications > Your App > Setup -->
   <!-- <script type="text/javascript" src="https://YOUR_ENVIRONMENT_ID.live.dynatrace.com/jstag/YOUR_APPLICATION_ID?sync=true"></script> -->
-  
+  <script type="text/javascript" src="https://js-cdn.dynatrace.com/jstag/148709fdc4b/ruxitagent_ICA15789NPQRTUVXfqrux_10329260115094557.js" data-dtconfig="app=241c855da2eb6c97|cors=1|owasp=1|featureHash=ICA15789NPQRTUVXfqrux|msl=153600|reportUrl=https://bf15468yso.bf.dynatrace.com/bf|rdnt=1|uxrgce=1|cuc=lvsi239f|srms=2,2,1,|mel=100000|expw=1|dpvc=1|lastModification=1768932083612|tp=500,50,0|srbbv=2|agentUri=https://js-cdn.dynatrace.com/jstag/148709fdc4b/ruxitagent_ICA15789NPQRTUVXfqrux_10329260115094557.js" data-config='{"revision":1768932083612,"beaconUri":"https://bf15468yso.bf.dynatrace.com/bf","agentUri":"https://js-cdn.dynatrace.com/jstag/148709fdc4b/ruxitagent_ICA15789NPQRTUVXfqrux_10329260115094557.js","environmentId":"lvsi239f","modules":"ICA15789NPQRTUVXfqrux"}' data-envconfig='{"tracestateKeyPrefix":"364ad945-2794ef2b"}' data-appconfig='{"app":"241c855da2eb6c97","userInteractionCapture":["all"]}' crossorigin="anonymous"></script>
 
   <style>
     body {
@@ -32,7 +32,9 @@
           serviceWorkerVersion: serviceWorkerVersion,
         },
         onEntrypointLoaded: function(engineInitializer) {
-          engineInitializer.initializeEngine().then(function(appRunner) {
+          engineInitializer.initializeEngine({
+            renderer: "html"  // Use HTML renderer instead of CanvasKit
+          }).then(function(appRunner) {
             appRunner.runApp();
           });
         }
