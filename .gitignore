@@ -4,3 +4,6 @@ build/flutter_assets/
 build/native_assets/
 build/native_hooks/
 build/*.dill
+
+# Dynatrace configuration (contains tenant-specific script tag)
+web/dynatrace.html
