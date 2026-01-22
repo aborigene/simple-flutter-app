@@ -240,21 +240,34 @@ Health check endpoint.
 
 ## Monitoring with Dynatrace
 
-Once configured, Dynatrace will automatically capture:
-- User sessions and authentication flows
-- Page load performance across all screens
-- User actions (login attempts, hash generation, calculations)
-- XHR/Fetch requests to all backend endpoints
-- JavaScript errors
-- Resource loading times
-- User navigation patterns between screens
+This application uses **automatic Dynatrace tracking** with zero per-button/per-page code:
+
+### What's Tracked Automatically
+- ✅ **All button clicks** - `Click: ButtonText` (ElevatedButton, IconButton, InkWell, etc.)
+- ✅ **All page navigation** - `Page: ScreenName` (route changes)
+- ✅ **User authentication** - User identity captured on login
+- ✅ **XHR/Fetch requests** - All backend API calls
+- ✅ **JavaScript errors** - Automatic error capture
+- ✅ **Page performance** - Load times, resource metrics
+
+### Implementation
+The app uses a **global gesture detector** that wraps the entire MaterialApp:
+- No code changes needed for each button
+- No manual tracking calls required
+- Automatic text extraction from widgets
+- Clean action names in Dynatrace
 
 **View your data:**
 1. Go to your Dynatrace tenant
 2. Navigate to **Applications & Microservices → Frontend**
 3. Select your application
-4. Explore user sessions, performance metrics, and user behavior
-5. Track conversion funnels (login → menu → feature usage)
+4. Explore:
+   - User sessions with clean action names
+   - Performance metrics for each screen
+   - Conversion funnels (e.g., Page: LoginPage → Click: Login → Page: MenuPage)
+   - XHR monitoring for backend calls
+
+**For implementation details**, see [DYNATRACE_INTEGRATION.md](DYNATRACE_INTEGRATION.md)
 
 ## Troubleshooting
 
